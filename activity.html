@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+#div1 {width:337.25px;height:750px;}
+#div2 {width:674.5px;height:750px;}
+#div3 {width:337.25px;height:750px;}
+</style>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+<body>
+<a href=index.html><img src="urban.png" width=250> </a><br><br>
+아이콘을 원하는 위치로 드래그 하세요.<br><br>
+<div id="div1" ondrop="drop(event)"  ondragover="allowDrop(event)" style="height: 750px; width: 25%;  float: left;">
+    <center> 
+<img id="drag1" src="hos.png" draggable="true" ondragstart="drag(event)" width=250> <br> 
+<img src="busstop.png" width=250> <br> 
+<img src="shop.png" width=250>
+    </center>  
+</div>
+<div id="div2" ondrop="drop(event)"  ondragover="allowDrop(event)" style="height: 750px; width: 50%; background: url(map.png) no-repeat center fixed; background-size : contain; float: left;">
+</div>
+<div id="div3" ondrop="drop(event)"  ondragover="allowDrop(event)" style="height: 750px; width: 25%;  float: left;">
+        <center> <img src="res.png" width=250> </center>
+</div>
+</body>
+</html>
